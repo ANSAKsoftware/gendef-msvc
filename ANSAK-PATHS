@@ -1,0 +1,22 @@
+When Packaged, ANSAK Software components install themselves, by default into:
+C:\ProgramData
+
+These are further partitioned into
+1. C:\ProgramData\bin -- where .exe and .dll components go
+2. C:\ProgramData\lib -- where library components go
+3. C:\ProgramData\include -- where headers go
+
+In the absence of a good standard /usr/include, /usr/lib and derivatives paths
+on Windows, these seem to be the most reasonable places to use, and for
+instance followed Chocolaty's lead for binaries at least.
+
+For libraries ANSAK components build for 32-bit and 64-bit versions, for the
+standard CMake configurations: Release, Debug, RelWithDebInfo and MinSizeRel.
+
+Libraries (.LIB) are partitioned within C:\ProgramData\lib, by default,
+according to:
+    <arch>\<config>\<lib-name>.lib
+
+Dynamic-linked Libraries (.DLL), when they are produced, are partitioned,
+within C:\ProgramData\bin, by default, by name:
+    <lib-name>-<arch>.dll
